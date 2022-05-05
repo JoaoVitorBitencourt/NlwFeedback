@@ -1,5 +1,5 @@
 import { prisma } from "../../prisma";
-import { FeedbackCreateData, FeedbacksRepository } from "../feedbacks-repository";
+import { FeedbackCreateData, FeedbackReturnData, FeedbacksRepository } from "../feedbacks-repository";
 
 export class PrismaFeedbacksRepository implements FeedbacksRepository {
     async create ({ type, comment, screenshot }: FeedbackCreateData) {
@@ -11,6 +11,13 @@ export class PrismaFeedbacksRepository implements FeedbacksRepository {
             }
         });
 
-        return feedback;
+        const content: FeedbackReturnData = {
+            id: feedback.id,
+            comment: feedback.comment,
+            type: feedback.type,
+            screenshot: feedback.screenshot || undefined
+        }
+
+        return content;
     };
 }
