@@ -4,14 +4,13 @@ import cors from "cors";
 
 const app = express();
 
-// app.use(cors({
-//     origin: "http://localhost:3000"
-// }));
+const PORT = process.env.PORT || 3333;
+
 app.use(cors());
 app.use(express.json());
 
 app.use(routes);
 
-app.listen(3333, () => {
-    console.log("HTTP server running!");
+app.listen(PORT, () => {
+    console.log(`HTTP server running in PORT: ${PORT}!`);
 })
