@@ -10,8 +10,8 @@ Consiste em uma API que recebe como entrada um objeto feedback na entrada com
   screenshot?: string;
 }
 ```
-onde o type pode ser: BUG | IDEA | OTHER
-e armazena em banco.
+onde o type pode ser: BUG | IDEA | OTHER, 
+envia uma mensagem para o email especificado em NlwFeedback/src/adapters/nodemailer/nodemailer-mail-adapter.ts e armazena em banco.
 
 A api possui somente uma rota do tipo POST que é /feedbacks.
 
